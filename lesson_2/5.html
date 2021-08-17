@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // не видел что в этом задании нужно будет использовать функции из 4го, по-этому там вместо 4х функций сделал 1.
+        'use strict'
+        function my_calc(a, b, operation) {
+            switch (operation) {
+                case '+':
+                    return a + b
+                case '-':
+                    return a - b
+                case '*':
+                    return a * b
+                case '/':
+                    return a / b
+            }
+        }
+        let a = Number(prompt('Введите a '))
+        while (isNaN(a)) {
+            a = Number(prompt('Введите корректное число a '))
+        }
+        let b = Number(prompt('Введите b '))
+        while (isNaN(b)) {
+            b = Number(prompt('Введите корректное число b '))
+        }
+        let symbol = prompt('Выберите оператор: +, -, *, /')
+        while (symbol != '+' && symbol != '-' && symbol !=
+            '*' && symbol != '/') {
+            symbol = prompt('Ошибка! Выберите оператор: +, -, *, /')
+        }
+        alert(my_calc(a, b, symbol))
+    </script>
+</body>
+
+</html>
