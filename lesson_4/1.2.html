@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function Post1(autor, text, date) {
+            this.autor = autor
+            this.text = text
+            this.date = date
+        }
+
+        Post1.prototype.edit = function (new_text) {
+            alert('es5')
+            alert(this.text)
+            this.text = new_text
+            alert(this.text)
+        }
+        function AttachedPost1(autor, text, date, highlighted = false) {
+            Post1.call(this, autor, text, date)
+            this.highlighted = highlighted
+        }
+
+        AttachedPost1.prototype = Object.create(Post1.prototype)
+        AttachedPost1.prototype.constructor = AttachedPost1
+
+        AttachedPost1.prototype.makeTextHighlighted1 = function () {
+            this.highlighted = true
+        }
+
+        let first_user = new AttachedPost1('user_1', 'some text', '01.01.1970')
+        first_user.edit('some new text')
+        first_user.makeTextHighlighted1()
+
+        class Post2 {
+            constructor(autor, text, date) {
+                this.autor = autor
+                this.text = text
+                this.date = date
+            }
+            edit2(new_text) {
+                alert('es6')
+                alert(this.text)
+                this.text = new_text
+                alert(this.text)
+            }
+        }
+        class AttachedPost2 extends Post2 {
+            constructor(autor, text, date, highlighted = false) {
+                super(autor, text, date)
+                this.highlighted = highlighted
+            }
+            makeTextHighlighted2() {
+                this.highlighted = true
+            }
+        }
+
+        let second_user = new AttachedPost2('user_2', 'some different text', '02.02/1970')
+        second_user.edit2('some new different text')
+        second_user.makeTextHighlighted2()
+
+
+    </script>
+</body>
+
+</html>
