@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        function Product1(name, price) {
+            this.name = name
+            this.price = price
+        }
+        Product1.prototype.make25PercentDiscount = function () {
+            alert('es5')
+            alert(this.price)
+            this.price *= 0.75
+            alert(this.price)
+        }
+        let first_item = new Product1('item1', 100)
+        first_item.make25PercentDiscount()
+
+        class Product2 {
+            constructor(name, price) {
+                this.name = name
+                this.price = price
+            }
+            make25PercentDiscount() {
+                alert('es6')
+                alert(this.price)
+                this.price *= 0.75
+                alert(this.price)
+            }
+        }
+        let second_item = new Product2('item2', 200)
+        second_item.make25PercentDiscount()
+
+    </script>
+</body>
+
+</html>
