@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        function description(num) {
+            let number_info = { units: 0, tens: 0, hundreds: 0 }
+            num = Math.floor(num)
+            for (let n in number_info) {
+                number_info[n] = num % 10
+                num = Math.floor(num / 10)
+            }
+            console.log(number_info)
+        }
+        let my_num = prompt('Введите число')
+        description(my_num)
+
+    </script>
+</body>
+
+</html>
